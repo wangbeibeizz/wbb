@@ -1,0 +1,317 @@
+{include file="public/_meta" /}
+<link href="/static/admin/lib/webuploader/0.1.5/webuploader.css" rel="stylesheet" type="text/css" />
+</head>
+<style>
+
+.lbwxq_mImg {
+    width: 110px;
+    height: 110px;
+    border: 1px solid #eee;
+    position: relative;
+}
+
+.lbwxq_mImg img {
+    width: 110px;
+    height: 110px;
+}
+
+
+.big img{
+    width: 1000px;
+    height: 1000px;
+}
+
+/*大图*/
+
+.lbwxq_lImg {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    left: 540px;
+    top: 25px;
+    display: none;
+    overflow: hidden;
+}
+
+.lbwxq_lImg img {
+    width: 1000px;
+    height: 1000px;
+}
+
+
+.pic {
+    display: inline-block;
+}
+
+.pic img {
+    width: 110px;
+    height: 110px;
+}
+body,html{
+position: relative;
+}
+.big{
+   position: absolute;
+    right: 25%;
+    top: 120px;
+    width: 300px;
+    height: 300px;
+}
+.big img{
+    width: 100%;
+    height: 100%;
+}
+</style>
+
+<body>
+    <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span>商品管理 <span class="c-gray en">&gt;</span> 修改商品 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新"><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+    <div class="page-container">
+        <form class="form form-horizontal" id="form-article-add">
+            <input type="hidden" name="__token__" value="{$Request.token}" />
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>商品名称：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" class="input-text" placeholder="商品名称" name="pd_name" value="{$info.pd_name}" style="width:20%">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>商品价格：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" class="input-text" placeholder="商品名称" name="pd_price" value="{$info.pd_price}" style="width:20%">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>商品库存：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" class="input-text" placeholder="商品库存" name="pd_stock" value="{$info.pd_stock}" style="width:20%">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>商品分类：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <span class="select-box" style="width:20%">
+                        <select name="ca_id"  class="select">
+                            <option value="{$info.pd_cate}">选择商品分类</option>
+                            {volist name="ca_list" id="vo"}
+                                <option value="{$vo.id}">{$vo.fl_name}</option>
+                            {/volist}
+                        </select>
+                    </span>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2">商品销量：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="number" class="input-text" placeholder="商品销量" name="pd_sale" value="{$info.pd_sale}" style="width:20%">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2">商品描述：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <textarea id="editor" type="text/plain" name="pd_details" style="width:100%;height:400px;">{$info.pd_details|raw}</textarea>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-2">商品主图：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <div class="pic" >
+                        <!-- {if condition="$info.pd_image eq '0'"}
+                        <img src="/uploads/shangchuan.png" alt="请上传" class="logo" >
+                        {else/}
+                        <img src="{$info.pd_image}" alt="请上传" class="logo" >
+                        {/if}
+                        <input type="file" name="file" onchange="eee($(this))" class="input-text" style="position: absolute;left: 0;top: 0;width: 100%;height: 100%;opacity: 0;"> -->
+                        {volist name="$pd_image" id="vo"}
+                          <li class="maomao" style="position: relative; list-style: none;float: left">
+                            <i class="Hui-iconfont ioc_x" onclick="remove_li(this)"  style="position: absolute;right: 0; top: 0;">&#xe6e2;</i>
+                            <img  src="{$vo}" onclick="ccc(this)"  alt="">
+                          </li>
+                        {/volist}
+                    </div>
+                    <div style="width:110px;height: 110px;position: relative;display: inline-block; ">
+                        <img src="/static/admin/img/add0.png" alt="" style="position: absolute;left: 0;top: 0;width: 100%;height: 100%;">
+                        <input type="file" name="file" onchange="bbb($(this))" class="input-text" style="position: absolute;left: 0;top: 0;width: 100%;height: 100%;opacity: 0;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" id="sku">
+            {volist name="list" id="vo"}
+            <div class="row cl add" style=" display: flex;justify-content: flex-start;">
+                <label class="form-label col-xs-4 col-sm-2">商品类型：</label>
+                    <input type="text" class="input-text" placeholder="商品类型" name="type[{$i}]" style="width:20%" value="{$vo.type}">
+                <label class="form-label"><span class="c-red">*</span>商品价格：</label>
+                   <input type="text" class="input-text" placeholder="商品价格" name="type_sum[{$i}]" style="width:15%" value="{$vo.type_sum}">
+                <label class="form-label"><span class="c-red">*</span>一代奖励：</label>
+                   <input type="text" class="input-text" placeholder="一代奖励" name="gold[{$i}]" style="width:15%" value="{$vo.gold_yd}">
+                {if condition="$i eq 1"}
+                <button class="btn btn-primary" colour="red" onclick="return addSku()">添加</button>
+                {else/}
+                <button class="btn btn-primary" onclick="return rmSku(this)">移除</button>
+                {/if}
+            </div>
+            {/volist}
+            </div>
+
+
+            <div style="display:none" class="ttt">
+                {volist name="$pd_image" id="vo"}
+                <input type="text" name="pd_image[]" class="ppp" value="{$vo}">
+                {/volist}
+                <!-- <input type="text" name="pd_image" class="ppp" value="{$info.pd_image}"> -->
+                <input type="text" name="pd_id" value="{$info.id}">
+            </div>
+            <div class="row cl">
+                <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                    <button onclick="return edit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 确认提交</button>
+                </div>
+            </div>
+        </·>
+    </div>
+    <div class="big" >
+        <!-- <img src="/static/admin/img/add0.png" /> -->
+    </div>
+    {include file="public/_footer" /}
+    <!--请在下方写此页面业务相关的脚本-->
+    <script type="text/javascript" src="/static/admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+    <script type="text/javascript" src="/static/admin/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+    <script type="text/javascript" src="/static/admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
+    <script type="text/javascript" src="/static/admin/lib/webuploader/0.1.5/webuploader.min.js"></script> 
+    <script type="text/javascript" src="/static/admin/lib/ueditor/1.4.3/ueditor.config.js"></script>
+    <script type="text/javascript" src="/static/admin/lib/ueditor/1.4.3/ueditor.all.min.js"> </script>
+    <script type="text/javascript" src="/static/admin/lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
+    <script type="text/javascript">
+        //添加
+        var i = 100;
+function addSku() {
+    i++;
+    var html =
+                '<div class="row cl add" style=" display: flex;justify-content: flex-start;">'+
+                '<label class="form-label col-xs-4 col-sm-2">商品类型：</label>'+
+                    '<input type="text" class="input-text" placeholder="商品类型" name="type['+i+']" style="width:20%">'+
+                '<label class="form-label"><span class="c-red">*</span>商品价格：</label>'+
+                   '<input type="text" class="input-text" placeholder="商品价格" name="type_sum['+i+']" style="width:15%">'+
+                   '<label class="form-label"><span class="c-red">*</span>一代奖励：</label>'+
+                   '<input type="text" class="input-text" placeholder="一代奖励" name="gold['+i+']" style="width:15%">'+
+                '<button class="btn btn-primary" onclick="return rmSku(this)">移除</button>'+
+            '</div>';
+    $('#sku').append(html);
+    return false;
+}
+
+//移除
+function rmSku(obj, skuid = 0) {
+    if (skuid) {
+        $.get("{:url('rmSku')}", {skuid:skuid}, function(data){
+            console.log(data);
+            layer.msg(data.msg);
+            if (data.code) {
+                $(obj).parent('.add').remove();
+            }
+        });
+    }
+    else{
+                $(obj).parent('.add').remove();
+    }
+    return false;
+}
+    function edit() {
+        $.post('{:url("edit")}', $('#form-article-add').serialize()).success(function(data) {
+            layer.msg(data.msg);
+            if (data.code) {
+                setTimeout(function() {
+                    location.href = '';
+                }, 1000);
+            }
+        });
+        return false;
+    }
+    $(function(){
+        $('.skin-minimal input').iCheck({
+                checkboxClass: 'icheckbox-blue',
+                radioClass: 'iradio-blue',
+                increaseArea: '20%'
+            });
+            $("#tab-system").Huitab({
+                index: 0
+            });
+            // var ue = UE.getEditor('editor');
+        var ue = UE.getEditor('editor').getPlainTxt() ;
+    });
+    function bbb(dada) {
+        var data = new FormData();
+        data.append('file', dada[0].files[0]);
+        var index = layer.load(1, { shade: false }); //0代表加载的风格，支持0-2
+        $.ajax({
+            url: '{:url("upload")}',
+            type: 'POST',
+            data: data,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function(data) {
+                layer.msg(data.msg);
+                if (data.code) {
+                    var html1 = '<li class="maomao" style="position: relative; list-style: none;float: left"><i  onclick="remove_li(this)" class="Hui-iconfont ioc_x" style="position: absolute;right: 0; top: 0;">&#xe6e2;</i><img src="' + data.data + '"  onclick="ccc(this)" alt=""></li>';
+                    var html2 = '<input name="pd_image[]" class="ppp" hidden="hidden" value="'+data.data+'">';
+                    $('.pic').append(html1);
+                    $('.ttt').append(html2);
+                }
+                layer.close(index);
+            },
+            error: function() {
+                layer.close(index);
+                layer.msg('上传出错');
+            }
+        });
+    }
+    function ccc(data){
+        var path = $(data).attr('src');
+        var html = '<img src="' + path + '" onclick="ddd()" alt="">';
+        $('.big').html(html);
+        $('.big').show();
+    }
+    function ddd(){
+        $('.big').hide();
+    }
+    ddd();
+    //删除主图
+    function remove_li(data){
+
+        var index = $('.maomao i').index(data);
+        $(data).parent().remove();
+        // var path = $(data).next('img').attr('src');
+        // var val = $('.ppp').eq(index).val();
+        $('.ppp').eq(index).remove();
+    }
+
+    function eee(dada) {
+        var data = new FormData();
+        data.append('file', dada[0].files[0]);
+        var index = layer.load(1, { shade: false }); //0代表加载的风格，支持0-2
+        $.ajax({
+            url: '{:url("product/upload")}',
+            type: 'POST',
+            data: data,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function(data) {
+                layer.msg(data.msg);
+                if (data.code) {
+                    $('.logo').attr('src',data.data);
+                    $('input[name="pd_image"]').val(data.data);  //添加上传的图片到隐藏域
+                }
+                layer.close(index);
+            },
+            error: function() {
+                layer.close(index);
+                layer.msg('上传出错');
+            }
+        });
+    }
+
+    </script>
+</body>
+
+</html>

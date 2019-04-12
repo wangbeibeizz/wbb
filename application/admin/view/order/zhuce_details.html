@@ -1,0 +1,41 @@
+{include file="public/_meta" /}
+<title>订单详情</title>
+</head>
+<body class="pos-r">
+	<div class="page-container">
+		<div class="row cl">
+			<div class="cl pd-5 bg-1 bk-gray mt-20"> <a href="javascript:;" class="btn btn-default radius"><span class="l">收货人：{$dizhi['us_name']} &nbsp;&nbsp;&nbsp;&nbsp;</span><span class="l">电话：{$dizhi['us_tel']} &nbsp;&nbsp;&nbsp;&nbsp;</span><span class="dizhi">收货地址：{$dizhi['province']} /{$dizhi['city']}/{$dizhi['area']}/{$dizhi['us_detailed']} </span> </a></div>
+			<div class="col-xs-11 col-sm-12 ">
+				<table id="tball" class="table table-border radius">
+					<thead id="" class="text-c">
+						<tr>
+							<th width="25">
+							<th>ID</th>
+							<!-- <th>ID</th> -->
+							<th>产品名称1</th>
+							<th>产品主图1</th>
+							<th>产品名称2</th>
+							<th>产品主图2</th>
+							<th>产品名称3</th>
+							<th>产品主图3</th>
+						</tr>
+					</thead>
+					<tbody id="tbMain">
+							<tr class="text-c">
+								<th width="25">
+								<td>{$taocan.id}</td>
+								<td>{$taocan.tc_watch}</td>
+								<td><img src="{$taocan.watch_image|default = ''}" style="width:60px;height:60px" alt=""></td>
+								<td>{$taocan.tc_phone}</td>
+								<td><img src="{$taocan.phone_image|default = ''}" style="width:60px;height:60px" alt=""></td>
+								<td>{$taocan.tc_computer}</td>
+								<td><img src="{$taocan.computer_image|default = ''}" style="width:60px;height:60px" alt=""></td>
+							</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+{include file="public/_footer"/}
+</body>
+</html>

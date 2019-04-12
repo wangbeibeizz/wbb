@@ -1,0 +1,19 @@
+.xq_wrap{
+	width: 100%;
+	background-color: #fff;
+	padding-bottom: 1rem;
+	box-sizing: border-box;
+	margin-bottom: 1.3rem;
+}
+.xq_wrap>p:nth-child(1){
+	width: 90%;
+	margin: auto;
+	padding-top: 0.5rem;
+	box-sizing: border-box;
+	font-size: 0.28rem;
+text-indent:0.56rem;
+line-height:0.5rem;
+}
+body,html{
+	background-color: #fff;
+}

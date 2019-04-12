@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>123</title>
+		<link rel="stylesheet" type="text/css" href="/asset/css/base.css" />
+		<script src="/asset/js/base.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="/asset/css/td_wdzt.css"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="description" content="ACL">
+    <meta name="author" content="ACL">
+    <link rel="shortcut icon" href="https://www.usacl.com/assets/img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/Public/tupu/css/main.css" />
+    <link href="/Public/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+    <link href="/Public/css/styles.css" type="text/css" rel="stylesheet">
+    <link href="/Public/css/prettify.css" type="text/css" rel="stylesheet">
+    <link href="/Public/css/jquery.dropdown.css" type="text/css" rel="stylesheet">
+    <link href="/Public/css/skylo.css" type="text/css" rel="stylesheet">
+    <link href="/Public/css/cy-style.css" type="text/css" rel="stylesheet">
+    <link href="/Public/css/dataTables.bootstrap.css" type="text/css" rel="stylesheet">
+    <link href="/Public/css/dataTables.themify.css" type="text/css" rel="stylesheet">
+    <script src="/Public/js/jquery-1.10.2.min.js"></script>
+    <script src="/Public/js/jqueryui-1.10.3.min.js"></script>
+    <script src="/Public/js/bootstrap.min.js"></script>
+    <script src="/Public/js/enquire.min.js"></script>
+    <script src="/Public/js/velocity.min.js"></script>
+    <script src="/Public/js/velocity.ui.min.js"></script>
+    <script src="/Public/js/skylo.js"></script>
+    <script src="/Public/js/wijets.js"></script>
+    <script src="/Public/js/jquery.sparklines.min.js"></script>
+    <script src="/Public/js/prettify.js"></script>
+    <script src="/Public/js/bootstrap-tabdrop.js"></script>
+    <script src="/Public/js/jquery.nanoscroller.min.js"></script>
+    <script src="/Public/js/jquery.dropdown.js"></script>
+    <script src="/Public/js/material.min.js"></script>
+    <script src="/Public/js/ripples.min.js"></script>
+    <script src="/Public/js/application.js"></script>
+    <script src="/Public/js/demo.js"></script>
+    <script src="/Public/js/demo-switcher.js"></script>
+    <script src="/Public/js/jquery.dataTables.js"></script>
+    <script src="/Public/js/dataTables.bootstrap.js"></script>
+    <script src="/Public/js/demo-datatables.js"></script>
+    <script type="text/javascript" src="/js/js1.js"></script>
+	</head>
+	<body >
+		<div class="header" style="overflow:hidden; background: #efd171; color: #000; margin-bottom: 20px;height:40px;line-height: 40px">
+			<a href="#" onclick="javascript:history.back(-1);" class="left"></a>
+  
+			<span class="center" style='font-size: 24px;'>{$a['us_nickname']}</span>
+			<a href="javascript:void(0)" class="right"></a>
+		</div>
+
+        <style>
+
+          .info_bg,
+          .staff_find_box {
+            /*统计信息背景*/
+            padding: 0px 6px 0px 15px;
+            color: #9A6A1B;
+            border: 1px solid #efd171;
+            height: 40px;
+            background-color: #000;
+            line-height: 40px;
+          }
+
+          .info_bg {
+            margin: 5px 0px 10px;
+            min-width: 780px;
+          }
+
+          table.t_info {
+            width: 175px;
+            background: #efd171;
+
+            border-collapse: collapse;
+            border: 1px solid #efd171;
+
+          }
+
+          table.t_info tr {
+            border: 0;
+          }
+
+          table.t_info th {
+            color: #000;
+            text-align: center;
+            height: 20px;
+            line-height: 20px;
+            border-top: 0;
+            border: 1px solid #efd171;
+            background: none;
+          }
+
+          table.t_info th a {
+            color: #000;
+          }
+
+          table.t_info ._span {
+          color:#f5f5f5;
+
+            cursor: pointer ;
+          }
+
+          table.t_info ._span:hover {
+            text-decoration: underline;
+          }
+
+          table.t_info td {
+            height: 20px;
+            background: #1b1a1f;
+            text-align: center;
+            border: 1px solid #efd171;
+            line-height: 20px;
+          color:#f5f5f5;
+
+          }
+          a{
+          color:#f5f5f5;
+          cursor:pointer;
+          }
+          td{
+          	background: black;
+            border-right: none;
+            border-bottom: none;
+          }
+          th{
+            text-transform: none;
+          }
+          ul, ol {
+   
+     margin-bottom: 0px; 
+}
+
+      .footCor {
+        color: #efd171 !important;
+      }
+
+        </style>
+        <section class="content" style="margin-bottom:1.3rem; background: #000 !important;">
+          <div class="row" style="margin-left: 0; margin-right: 0; background: #000 !important;">
+            <div class="col-xs-12" style="padding:0; background: #000 !important;">
+              <div class="member_mian" style="overflow:scroll; background: #000 !important;">
+                <table width="98%" align="left" cellpadding="0" cellspacing="0" id="treeform" style="background: #000 !important;">
+                  <tbody style="background: #000 !important;">
+                    <tr>
+                      <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background: #000 !important;">
+                          <tbody style="background: #000 !important;">
+                            <tr>
+                              <td colspan="4" align="center">
+                                <table class="t_info" border="0" cellspacing="0" cellpadding="0" >
+                                  <tbody>
+                                    <tr>
+                                      <th colspan="2">
+                                         <input type="hidden"  name="user" value="123" />
+                                          <a>{$list[0]['us_nickname']}</a>
+                                      </th>
+                                    </tr>
+                                    <tr>
+                                      {if condition="$list[0]['us_type'] eq 1"}
+                                      <td colspan="2">
+                                        状态：已启动
+                                      </td>
+                                      {else /}
+                                      <td colspan="2">
+                                        状态：已冻结
+                                      </td>
+                                      {/if}
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                        姓名：{$list[0]['us_name']}
+                                      </td>
+                                    </tr>
+                                     <tr>
+                                      <td colspan="2">
+                                       目标达成次数： {$list[0]['us_node_time']}
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                       分享人： {$list[0]['us_zhitui_nickname']}
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <td colspan="4" align="center"><img src="/asset/img/line_1.gif" width="50%" height="23"></td>
+                            </tr>
+
+
+
+                            <tr>
+                              <td colspan="2" align="center">
+                                <table class="t_info" border="0" cellspacing="0" cellpadding="0">
+                                <notempty name="user2">
+                                  {if condition="$list[1] neq '0'"}
+                                  <tbody>
+                                    <tr>
+                                      <th colspan="2">
+                                         <input type="hidden"  name="user" value="123" />
+                                          <a>{$list[1]['us_nickname']}</a>
+                                      </th>
+                                    </tr>
+                                    <tr>
+                                      {if condition="$list[1]['us_type'] eq 1"}
+                                      <td colspan="2">
+                                        状态：已启动
+                                      </td>
+                                      {else /}
+                                      <td colspan="2">
+                                        状态：已冻结
+                                      </td>
+                                      {/if}
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                        姓名：{$list[1]['us_name']}
+                                      </td>
+                                    </tr>
+                                     <tr>
+                                      <td colspan="2">
+                                       目标达成次数： {$list[1]['us_node_time']}
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                       分享人： {$list[1]['us_zhitui_nickname']}
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                  {else /}
+                                  <tbody>
+                                    <tr>
+                                      <th colspan="2">
+                                         <input type="hidden"  name="user" value="123" />
+                                          <a>无</a>
+                                      </th>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                        状态：无
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                        姓名：无
+                                      </td>
+                                    </tr>
+                                     <tr>
+                                      <td colspan="2">
+                                       目标达成次数： 无
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                       分享人： 无
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                  {/if}
+
+
+                                </notempty>
+                                </table>
+                              </td>
+                              <td colspan="2" align="center">
+
+                                <table class="t_info" border="0" cellspacing="0" cellpadding="0">
+                                <notempty name="user3">
+                                  {if condition="$list[2] neq '0'"}
+                                  <tbody>
+                                    <tr>
+                                      <th colspan="2">
+                                         <input type="hidden"  name="user" value="123" />
+                                          <a>{$list[2]['us_nickname']}</a>
+                                      </th>
+                                    </tr>
+                                    <tr>
+                                      {if condition="$list[2]['us_type'] eq 1"}
+                                      <td colspan="2">
+                                        状态：已启动
+                                      </td>
+                                      {else /}
+                                      <td colspan="2">
+                                        状态：已冻结
+                                      </td>
+                                      {/if}
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                        姓名：{$list[2]['us_name']}
+                                      </td>
+                                    </tr>
+                                     <tr>
+                                      <td colspan="2">
+                                       目标达成次数： {$list[2]['us_node_time']}
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                       分享人： {$list[2]['us_zhitui_nickname']}
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                  {else /}
+                                  <tbody>
+                                    <tr>
+                                      <th colspan="2">
+                                         <input type="hidden"  name="user" value="123" />
+                                          <a>无</a>
+                                      </th>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                        状态：无
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                        姓名：无
+                                      </td>
+                                    </tr>
+                                     <tr>
+                                      <td colspan="2">
+                                       目标达成次数： 无
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                       分享人： 无
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                  {/if}
+                                </notempty>
+                                </table>
+
+                              </td>
+                            </tr>
+                            <tr>
+                              <td colspan="2" align="center"><img src="/asset/img/line_2.gif" width="50%" height="23"></td>
+                              <td colspan="2" align="center"><img src="/asset/img/line_2.gif" width="50%" height="23"></td>
+                            </tr>
+                            <tr>
+                              <td width="22%" align="center" style="padding:0 10px;">
+                                <table class="t_info" border="0" cellspacing="0" cellpadding="0">
+                                  <notempty name="user4">
+                                  {if condition="$list[3] neq '0'"}
+                                  <tbody>
+                                    <tr>
+                                      <th colspan="2">
+                                         <input type="hidden"  name="user" value="123" />
+                                          <a>{$list[3]['us_nickname']}</a>
+                                      </th>
+                                    </tr>
+                                    <tr>
+                                      {if condition="$list[3]['us_type'] eq 1"}
+                                      <td colspan="2">
+                                        状态：已启动
+                                      </td>
+                                      {else /}
+                                      <td colspan="2">
+                                        状态：已冻结
+                                      </td>
+                                      {/if}
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                        姓名：{$list[3]['us_name']}
+                                      </td>
+                                    </tr>
+                                     <tr>
+                                      <td colspan="2">
+                                       目标达成次数： {$list[3]['us_node_time']}
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                       分享人： {$list[3]['us_zhitui_nickname']}
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                  {else /}
+                                  <tbody>
+                                    <tr>
+                                      <th colspan="2">
+                                         <input type="hidden"  name="user" value="123" />
+                                          <a>无</a>
+                                      </th>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                        状态：无
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                        姓名：无
+                                      </td>
+                                    </tr>
+                                     <tr>
+                                      <td colspan="2">
+                                       目标达成次数： 无
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                       分享人： 无
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                  {/if}
+                                </notempty>
+                                </table>
+                              </td>
+                              <td width="22%" align="center" style="padding:0 10px;">
+                                <table class="t_info" border="0" cellspacing="0" cellpadding="0">
+                                  <notempty name="user5">
+                                  {if condition="$list[4] neq '0'"}
+                                  <tbody>
+                                    <tr>
+                                      <th colspan="2">
+                                         <input type="hidden"  name="user" value="123" />
+                                          <a>{$list[4]['us_nickname']}</a>
+                                      </th>
+                                    </tr>
+                                    <tr>
+                                      {if condition="$list[4]['us_type'] eq 1"}
+                                      <td colspan="2">
+                                        状态：已启动
+                                      </td>
+                                      {else /}
+                                      <td colspan="2">
+                                        状态：已冻结
+                                      </td>
+                                      {/if}
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                        姓名：{$list[4]['us_name']}
+                                      </td>
+                                    </tr>
+                                     <tr>
+                                      <td colspan="2">
+                                       目标达成次数： {$list[4]['us_node_time']}
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                       分享人： {$list[4]['us_zhitui_nickname']}
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                  {else /}
+                                  <tbody>
+                                    <tr>
+                                      <th colspan="2">
+                                         <input type="hidden"  name="user" value="123" />
+                                          <a>无</a>
+                                      </th>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                        状态：无
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                        姓名：无
+                                      </td>
+                                    </tr>
+                                     <tr>
+                                      <td colspan="2">
+                                       目标达成次数： 无
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                       分享人： 无
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                  {/if}
+                                </notempty>
+                                </table>
+                              </td>
+                              <td width="22%" align="center" style="padding:0 10px;">
+                                <table class="t_info" border="0" cellspacing="0" cellpadding="0">
+                                  <notempty name="user6">
+                                  {if condition="$list[5] neq '0'"}
+                                  <tbody>
+                                    <tr>
+                                      <th colspan="2">
+                                         <input type="hidden"  name="user" value="123" />
+                                          <a>{$list[5]['us_nickname']}</a>
+                                      </th>
+                                    </tr>
+                                    <tr>
+                                      {if condition="$list[5]['us_type'] eq 1"}
+                                      <td colspan="2">
+                                        状态：已启动
+                                      </td>
+                                      {else /}
+                                      <td colspan="2">
+                                        状态：已冻结
+                                      </td>
+                                      {/if}
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                        姓名：{$list[5]['us_name']}
+                                      </td>
+                                    </tr>
+                                     <tr>
+                                      <td colspan="2">
+                                       目标达成次数： {$list[5]['us_node_time']}
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                       分享人： {$list[5]['us_zhitui_nickname']}
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                  {else /}
+                                  <tbody>
+                                    <tr>
+                                      <th colspan="2">
+                                         <input type="hidden"  name="user" value="123" />
+                                          <a>无</a>
+                                      </th>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                        状态：无
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                        姓名：无
+                                      </td>
+                                    </tr>
+                                     <tr>
+                                      <td colspan="2">
+                                       目标达成次数： 无
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                       分享人： 无
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                  {/if}
+                                </notempty>
+                                </table>
+                              </td>
+                              <td width="22%" align="center" style="padding:0 10px;">
+                                <table class="t_info" border="0" cellspacing="0" cellpadding="0">
+                                  <notempty name="user7">
+                                  {if condition="$list[6] neq '0'"}
+                                  <tbody>
+                                    <tr>
+                                      <th colspan="2">
+                                         <input type="hidden"  name="user" value="123" />
+                                          <a>{$list[6]['us_nickname']}</a>
+                                      </th>
+                                    </tr>
+                                    <tr>
+                                      {if condition="$list[6]['us_type'] eq 1"}
+                                      <td colspan="2">
+                                        状态：已启动
+                                      </td>
+                                      {else /}
+                                      <td colspan="2">
+                                        状态：已冻结
+                                      </td>
+                                      {/if}
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                        姓名：{$list[6]['us_name']}
+                                      </td>
+                                    </tr>
+                                     <tr>
+                                      <td colspan="2">
+                                       目标达成次数： {$list[6]['us_node_time']}
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                       分享人： {$list[6]['us_zhitui_nickname']}
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                  {else /}
+                                  <tbody>
+                                    <tr>
+                                      <th colspan="2">
+                                         <input type="hidden"  name="user" value="123" />
+                                          <a>无</a>
+                                      </th>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                        状态：无
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                        姓名：无
+                                      </td>
+                                    </tr>
+                                     <tr>
+                                      <td colspan="2">
+                                       目标达成次数： 无
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="2">
+                                       分享人： 无
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                  {/if}
+                                </notempty>
+                                </table>
+                              </td>
+                            </tr>
+
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- /.content -->
+
+
+
+
+
+		<!--底部-->
+<!--<footer class="footer" id="footer" style="height: 1.1rem" >
+
+</footer>-->
+     <div class="footer">
+		<include file="Public:footer" />
+	</div>
+
+	</body>
+</html>

@@ -1,0 +1,37 @@
+.jyjl6{
+				width: 100%;
+				margin-bottom: 1.3rem;
+			}
+			.jyjl6 li{
+				width: 100%;
+				background-color: #fff;
+				color: #696969;
+				margin-bottom: 0.1rem;
+				position: relative;
+				
+			}
+			.jyjl6 li>p{
+				height:0.6rem ;
+				border-bottom: 1px solid lightgray;
+				line-height: 0.6rem;
+				display: flex;
+				justify-content: space-between;
+				padding:0 5% ;
+				
+				
+				}
+		    .jyjl6 li>p span:nth-child(1){
+		    	font-size: 0.3rem;
+		    }
+			.jyjl6 li>div{
+				height:2rem;
+		    	font-size: 0.28rem;
+				padding:0.2rem 5% ;
+				
+			}
+			.jyjl6 li>div>p{
+				display: flex;
+				justify-content: space-between;
+			}
+			
+			

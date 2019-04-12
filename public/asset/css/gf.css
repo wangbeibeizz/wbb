@@ -1,0 +1,311 @@
+.gf_top{
+	width: 100%;
+	height: 3.2rem;
+	/*background: url(../img/gfdt.png) no-repeat fixed center center / cover;*/
+	background: url(../img/gfdt.png)   no-repeat;
+	background-size:  100% 100%;
+}
+.gf_top0{
+	padding-top: 0.3rem;
+	padding-left: 4%;
+	font-size: 0.28rem;
+	color: rgba(0,0,0,0.7);
+}
+.jdt_div{
+	width: 80%;
+	margin-top: 0.35rem;
+	height: 0.7rem;
+	margin-left: 10%;
+	/*border: 1px  solid  black;*/
+	background: url(../img/gf_input.png)   no-repeat;
+	background-size:  100% 100%;
+	padding-top: 0.04rem;
+}
+.jdt{
+	margin-left:0.1rem;
+	height: 0.6rem;
+	width: 96.7%;
+	position: relative;
+	/*border:1px solid  black;*/
+}
+.jdt0{
+	height: 0.6rem;
+	width: 100%;
+}
+.jdt>p{
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 0.6rem;
+	width: 100%;
+	text-align: center;
+	color: #fff;
+	line-height: 0.6rem;
+	font-size: 0.3rem;
+}
+/*分类*/
+.fl_ul{
+	width: 100%;
+	height: 1rem;
+	background-color: #fff;
+	display: flex;
+	justify-content: space-between;
+
+}
+.fl_ul li{
+	/*height: 0.6rem;*/
+	/*margin:0.2rem 0;*/
+	width: 24.9%;
+	text-align: center;
+
+	color: #696969;
+	line-height: 0.6rem;
+	font-size: 0.3rem;
+	position: relative;
+}
+.fl_ul li>p{
+	margin-left: 10%;
+	height: 0.6rem;
+	margin:0.2rem 0;
+	border-right: 1.2px solid gainsboro;
+}
+.fl_ul li:last-child>p{
+	border: 0;
+}
+.fl_ul li>div{
+	position: absolute;
+	left: 10%;
+	bottom: 0;
+	width: 80%;
+	height: 3px;
+
+}
+.xian{
+		background-color: #fa3e3d;
+}
+.xianp{
+	color:#ff383a;
+}
+/*交易大厅*/
+.jydt_wrap{
+	width: 100%;
+	margin-top: 0.2rem;
+	margin-bottom: 1.3rem;
+}
+.jydt_wrap>div{
+	width: 100%;
+padding-left: 5%;
+padding-right: 5%;
+box-sizing: border-box;
+font-size: 0.3rem;
+color: #696969;
+	line-height: 0.8rem;
+	height: 0.8rem;
+	background-color: #fff;
+	display: flex;
+	justify-content: space-between;
+}
+.jydt_wrap>div>p:nth-child(1){
+	width: 40%;
+
+}
+.jydt_wrap>div>p:nth-child(2){
+	width: 42%;
+
+}
+.jydt_wrap>div>p:nth-child(3){
+	width: 18%;
+
+}
+.jydt_wrap>ul{
+width: 100%;
+	background-color: #fff;
+}
+.jydt_wrap>ul li{
+width: 100%;
+
+	height: 1rem;
+padding-left: 5%;
+padding-right: 5%;
+box-sizing: border-box;
+font-size: 0.28rem;
+color: #696969;
+	line-height: 1rem;
+	display: flex;
+	justify-content: space-between;
+	border-top: 2px solid #F0F0F0;
+}
+.jydt_wrap>ul li>p:nth-child(1){
+	width: 40%;
+
+}
+.jydt_wrap>ul li>p:nth-child(2){
+	width: 37%;
+
+}
+.jydt_wrap>ul li>a:nth-child(3){
+	width: 18%;
+	height: 0.7rem;
+	text-align: center;
+	color: #fff;
+	line-height: 0.7rem;
+	display: inline-block;
+	background-color:#ff9000;
+	margin-top: 0.15rem;
+	border-radius: 0.15rem;
+}
+.jydt_wrap{
+/*	display: none;*/
+}
+/*挂单出售*/
+.gdcs_wrap{
+	width: 100%;
+	margin-top: 0.2rem;
+	margin-bottom: 1.3rem;
+	background-color: #fff;
+
+}
+.gdcs_wrap>div{
+	width: 100%;
+padding-left: 5%;
+padding-right: 5%;
+box-sizing: border-box;
+font-size: 0.3rem;
+color: #696969;
+	line-height: 1rem;
+	height:1rem;
+	background-color: #fff;
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 2px solid #F0F0F0;
+}
+.wdgf0{
+	margin-top: 0.1rem;
+
+}
+.wdgf0 p{
+	height: 0.8rem;
+	line-height: 0.8rem;
+	font-size: 0.3rem;
+	color: #696969;
+	margin-left:5%;
+}
+.wdgf0 input{
+	width: 90%;
+	border: 1px solid gainsboro;
+	height: 0.7rem;
+	margin-left: 4.5%;
+	border-radius: 0.1rem;
+	padding-left: 0.2rem;
+	box-sizing: border-box;
+	font-size: 0.3rem;
+}
+.wdgf0 select{
+	width: 90%;
+	color:#696969;
+	border: 1px solid gainsboro;
+	height: 0.7rem;
+	margin-left: 4.5%;
+	border-radius: 0.1rem;
+	padding-left: 0.2rem;
+	box-sizing: border-box;
+	font-size: 0.3rem;
+}
+.gdcs_wrap	button{
+	width: 90%;
+	background-color: #fa3e3d;
+	color: #fff;
+	height: 0.8rem;
+	margin-left: 5%;
+	border:0;
+	border-radius: 0.1rem;
+	font-size: 0.3rem;
+	margin-top: 0.5rem;
+	margin-bottom: 0.6rem;
+}
+.gdcs_wrap{
+	display: none;
+}
+/*好友交易*/
+.hyjy_wrap{
+	width: 100%;
+	margin-top: 0.2rem;
+	margin-bottom: 1.3rem;
+	background-color: #fff;
+
+
+}
+.hyjy_wrap>div{
+	width: 100%;
+padding-left: 5%;
+padding-right: 5%;
+box-sizing: border-box;
+font-size: 0.3rem;
+color: #696969;
+	line-height: 1rem;
+	height:1rem;
+	background-color: #fff;
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 2px solid #F0F0F0;
+}
+.hyjy_wrap form p{
+	height: 0.8rem;
+	line-height: 0.8rem;
+	font-size: 0.3rem;
+	color: #696969;
+	margin-left:5%;
+}
+.hyjy_wrap input{
+	width: 90%;
+	border: 1px solid gainsboro;
+	height: 0.7rem;
+	margin-left: 4.5%;
+	border-radius: 0.1rem;
+	padding-left: 0.2rem;
+	box-sizing: border-box;
+	font-size: 0.3rem;
+}
+.hyjy_wrap	button{
+	width: 90%;
+	background-color:#fa3e3d;
+	color: #fff;
+	height: 0.8rem;
+	margin-left: 5%;
+	border:0;
+	border-radius: 0.1rem;
+	font-size: 0.3rem;
+	margin-top: 0.6rem;
+	margin-bottom: 0.6rem;
+}
+.hyjy_wrap{
+	display: none;
+}
+.fzgz_wrap{
+	width: 100%;
+	margin-top: 0.2rem;
+	margin-bottom: 1.3rem;
+	background-color: #fff;
+}
+.fzgz_wrap>p:nth-child(1){
+	width: 90%;
+	font-size: 0.3rem;
+	text-align: center;
+	margin-left: 5%;
+	height: 1.5rem;
+	line-height: 1.5rem;
+	color: #696969;
+
+}
+.fzgz_wrap>ol{
+	width: 85%;
+	font-size: 0.24rem;
+	margin-left: 10%;
+	line-height: 0.42rem;
+	padding-bottom: 0.5rem;
+	color: #696969;
+	/*line-height: 1.5rem;*/
+}
+.fzgz_wrap{
+	display: none;
+}

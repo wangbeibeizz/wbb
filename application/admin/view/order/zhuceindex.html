@@ -1,0 +1,174 @@
+{include file="public/_meta" /}
+<link rel="stylesheet" type="text/css" href="/static/viewer.min.css"/>
+<title></title>
+<style>	
+		input{
+			width:30px;
+			border:none;
+		}
+
+</style>
+</head>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span>订单管理 <span class="c-gray en">&gt;</span> 套餐订单列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="page-container">
+	<div class="text-c">
+	<!-- <form class="Huiform" method="get" action="" target="_self">
+		状态：
+		<span class="select-box inline">
+			<select name="or_status" class="select">
+				<option value="">全部</option> 
+				<option value="0">未支付</option> 
+				<option value="1">已支付</option>
+				<option value="3">已收货</option>
+			</select>
+		</span>&nbsp;&nbsp;
+		<button type="submit" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
+	</form> -->
+	</div>
+	<div class="cl pd-5 bg-1 bk-gray mt-20">
+		<!-- <span class="l">
+			<a href="javascript:;" onclick="create(0,'add','添加订单')" class="btn btn-primary radius">
+			<i class="Hui-iconfont">&#xe600;</i> 订单</a>
+		</span>  -->
+		<span class="r"><strong></strong></span> </div>
+	<div class="mt-20">
+	<table class="table table-border  table-hover table-bg table-sort">
+		<thead>
+			<tr class="text-c">
+				<th>ID</th>
+				<!-- <th>用户id</th> -->
+				<!-- <th>商家信息</th> -->
+				<th>姓名</th>
+				<th>电话</th>
+				<th>订单状态</th>
+				<th>订单详情</th>
+				<th>创建时间</th> 
+				<th>系统操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			{volist name='list' id="vo"}
+				<tr class="text-c">
+					<td>{$vo.us_id}</td>
+					<td>{$vo.us_name}</td>
+					<td>{$vo.us_tel}</td>
+					{if condition="$vo.type eq 0"}
+					<td style="color: red">待发货</td>
+					{else/}
+					<td style="color: dodgerblue">已发货</td>
+					{/if}
+					<td><a href="javascript:;" onclick="showDetail({$vo.id})">[点击查看]</a></td>
+					<td>{$vo.creat_time}</td>
+					<td class="td-manage">
+						{if condition="$vo.type eq 0"}
+						<a href="javascript:;" onclick="deliver({$vo.id},'dodeliverr')">[点击发货]</a>
+						{/if}
+						&nbsp;
+						&nbsp;
+						<a style="text-decoration:none" onclick="del({$vo.id},'Order')" title="删除"><i class="Hui-iconfont">&#xe706;</i></a>
+					</td>
+				</tr>
+			{/volist}
+		</tbody>
+	</table>
+	<div class="pages" style="margin:20px;float: right; ">{$list|raw}</div>
+	<div class="pages" style="margin:20px;float: right; "></div>
+</div>
+{include file="public/_footer" /}
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="/static/admin/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+   <script src="/static/viewer.min.js"></script>
+<script type="text/javascript">
+	  //图片放大
+$('.image').viewer();
+	$('select[name="or_status"]').val({$Request.get.or_status});
+	$('select[name="or_num"]').val({$Request.get.or_num});
+	$('select[name="st_id"]').val({$Request.get.st_id});
+function create(id,url,key){
+	var url = "{:url('"+url+"')}?id="+id;
+	creatIframe(url,key);
+}
+function change(id,value,key){
+	layer.confirm('确定要更改么？', {
+	      btn: ['确定', '取消']
+	    }, function(index, layero){
+	        $.ajax({
+	            type: "post",
+	            url: "{:url('change')}",
+	            data: {id:id,value:value,key:key},
+	            success: function(data) {
+	             	if(data.code){
+	             		location.href = '';
+	             	}else{
+	             		location.href = '';
+	             	}
+	            }
+	        });
+	    });
+}
+
+function del(id,key){
+    layer.confirm('确定要删除么？', {
+      btn: ['确定', '取消']
+    }, function(index, layero){
+        $.ajax({
+            type: "post",
+            url: "{:url('taocan_dingdan')}",
+            data: {id:id,key:key},
+            success: function(data) {
+                layer.msg(data.msg);
+                if(data.code==1){
+                    setTimeout(function(){
+                        location.href = data.url;
+                    },1000);
+                }
+            }
+        });
+    });
+}
+
+
+function deliver(id){
+    layer.confirm('确定发货', {
+      btn: ['确定', '取消']
+    }, function(index, layero){
+        $.ajax({
+            type: "post",
+            url: "{:url('dodeliverr')}",
+            data: {id:id},
+            success: function(data) {
+                layer.msg(data.msg);
+                if(data.code==1){
+                    setTimeout(function(){
+                        location.href = data.url;
+                    },1000);
+                }
+            }
+        });
+    });
+}
+function showDetail(id){
+	var url = "{:url('Order/zhuce_details')}?id="+id;
+	layer_show('订单详情',url);
+}
+// function deliver(id){
+// 	var url = "{:url('Order/Deliver')}?id="+id;
+// 	layer_show('发货页面',url,'600','300');
+// }
+function selecttime(flag){
+    if(flag==1){
+        var endTime = $("#countTimeend").val();
+        if(endTime != ""){
+            WdatePicker({dateFmt:'yyyy-MM-dd HH:mm',maxDate:endTime})}else{
+            WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})}
+    }else{
+        var startTime = $("#countTimestart").val();
+        if(startTime != ""){
+            WdatePicker({dateFmt:'yyyy-MM-dd HH:mm',minDate:startTime})}else{
+            WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})}
+    }
+ }
+</script> 
+</body>
+</html>

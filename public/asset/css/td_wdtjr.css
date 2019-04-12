@@ -1,0 +1,23 @@
+		body,html{
+	background-color: #FFF;
+}
+.wdtjr{
+	margin-top: 0.1rem;
+}
+.wdtjr p{
+	height: 0.8rem;
+	line-height: 0.8rem;
+	font-size: 0.3rem;
+	color: #696969;
+	margin-left:5%;
+}
+.wdtjr input{
+	width: 90%;
+	border: 1px solid gainsboro;
+	height: 0.7rem;
+	margin-left: 4.5%;
+	border-radius: 0.1rem;
+	padding-left: 0.2rem;
+	box-sizing: border-box;
+	font-size: 0.3rem;
+}

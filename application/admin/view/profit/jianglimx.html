@@ -1,0 +1,156 @@
+{include file="public/_meta" /}
+<title></title>
+</head>
+
+<body>
+    <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span>财务管理 <span class="c-gray en">&gt;</span> 奖金明细
+        <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新"><i class="Hui-iconfont">&#xe68f;</i></a>
+
+        <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" onclick="excel()" title="导出Excel文档"><i class="Hui-iconfont">&#xe681;</i></a></nav>
+    <div class="page-container">
+        <div class="text-c">
+            <form class="Huiform" method="get" action="">
+            </span>
+                <input type="text" class="input-text" style="width:150px" placeholder="用户姓名、手机号" id="" name="keywords" value="{$Request.get.keywords|default=''}">
+                日期范围：
+                <input type="text" class="input-text Wdate" name="start" id="countTimestart" onfocus="selecttime(1)" value="{$Request.get.start|default=''}" size="17" class="date" readonly style="width:140px;">
+                -
+                <input type="text" class="input-text Wdate" name="end" id="countTimeend" onfocus="selecttime(2)" value="{$Request.get.end|default=''}" size="17"  class="date" readonly style="width:140px;">
+                <button type="submit" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
+            </form>
+        </div>
+        <div class="cl pd-5 bg-1 bk-gray mt-20">
+            <span class="r">共有数据：<strong></strong>{$count}条</span> </div>
+        <div class="mt-20">
+            <table class="table table-border  table-hover table-bg table-sort">
+                <thead>
+                    <tr class="text-c">
+                        <th>id</th>
+                        <th>昵称</th>
+                        <th>手机号</th>
+                        <th>姓名</th>
+                        <th>奖励金额</th>
+                        <th>奖励类型</th>
+                        <th>奖励详情</th>
+                        <th>奖励产生时间</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {volist name='list' id="vo"}
+                    <tr class="text-c">
+                        <td>{$vo.id}</td>
+                        <td>{$vo.us_nickname}</td>
+                        <td>{$vo.us_tel}</td>
+                        <td>{$vo.us_name}</td>
+
+                        <td>{$vo.rd_mony}</td>
+                        {if condition="$vo.re_type eq 0"}
+                        <td>分享奖</td>
+                        {/if}
+                        {if condition="$vo.re_type eq 1"}
+                        <td>我的目标达成奖励</td>
+                        {/if}
+                        {if condition="$vo.re_type eq 2"}
+                        <td>首节点人达成奖励</td>
+                        {/if}
+                        {if condition="$vo.re_type eq 3"}
+                        <td>分享的人消费奖励</td>
+                        {/if}
+
+
+                        {if condition="$vo.re_type eq 0"}
+                        <td>分享{$vo.rd_id_us_nickname}获得</td>
+                        {/if}
+                        {if condition="$vo.re_type eq 1"}
+                        <td>自身目标达成</td>
+                        {/if}
+                        {if condition="$vo.re_type eq 2"}
+                        <td>首节点人{$vo.rd_id_us_nickname}达成奖励</td>
+                        {/if}
+                        {if condition="$vo.re_type eq 3"}
+                        <td>{$vo.rd_id_us_nickname}消费产生奖励</td>
+                        {/if}
+                        <td>{$vo.re_time}</td>
+                    </tr>
+                    {/volist}
+                </tbody>
+            </table>
+        <div class="pages" style="margin:20px;float: right; ">{$list|raw}</div>
+        </div>
+        {include file="public/_footer" /}
+        <!--请在下方写此页面业务相关的脚本-->
+        <script type="text/javascript" src="/static/admin/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+        <script type="text/javascript">
+        $('select[name="wa_type"]').val({$Request.get.wa_type});
+
+        function create(id, url, key) {
+            var url = "{:url('" + url + "')}?id=" + id;
+            creatIframe(url, key);
+        }
+
+        function change(id, value, key) {
+            layer.confirm('确定已发放提现吗？', {
+                btn: ['确定', '取消']
+            }, function(index, layero) {
+                $.ajax({
+                    type: "post",
+                    url: "{:url('change')}",
+                    data: { id: id, value: value, key: key },
+                    success: function(data) {
+                        if (data) {
+                            location.href = '';
+                        }
+                    }
+                });
+            });
+        }
+
+        function del(id, key) {
+            layer.confirm('确定要删除么？', {
+                btn: ['确定', '取消']
+            }, function(index, layero) {
+                $.ajax({
+                    type: "post",
+                    url: "{:url('Every/allDel')}",
+                    data: { id: id, key, key },
+                    success: function(data) {
+                        layer.msg(data.msg);
+                        if (data.code == 1) {
+                            setTimeout(function() {
+                                location.href = data.url;
+                            }, 1000);
+                        }
+                    }
+                });
+            });
+        }
+        // function excel() {
+        //     layer.confirm('导出Excel文档', {
+        //         btn: ['确定', '取消']
+        //     }, function() {
+        //         $.ajax({
+        //             url: "{:url('profit/excel')}",
+        //         });
+        //     });
+        // }
+        function excel(){
+            var url = "{:url('excel')}";
+            creatIframe(url,'表格导出');
+        }
+        function selecttime(flag){
+            if(flag==1){
+                var endTime = $("#countTimeend").val();
+                if(endTime != ""){
+                    WdatePicker({dateFmt:'yyyy-MM-dd HH:mm',maxDate:endTime})}else{
+                    WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})}
+            }else{
+                var startTime = $("#countTimestart").val();
+                if(startTime != ""){
+                    WdatePicker({dateFmt:'yyyy-MM-dd HH:mm',minDate:startTime})}else{
+                    WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})}
+            }
+        }
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+{include file="public/_meta" /}
+<title>推荐人</title>
+</head>
+<body class="pos-r">
+	<div class="page-container">
+		<div class="row cl">
+			<div class="col-xs-11 col-sm-12 ">
+				<table id="tball" class="table table-border radius">
+					<thead id="" class="text-c">
+						<tr>
+							<th width="25">
+							<th>ID</th>
+							<th>姓名</th>
+							<th>账号/手机号</th>
+							<th>现金积分</th>
+							<th>注册积分</th>
+							<!-- <th>商城总消费</th> -->
+						</tr>
+					</thead>
+					<tbody id="tbMain">
+							<tr class="text-c">
+								<th width="25">
+								<td>{$list.id}</td>
+								<td>{$list.us_name}</td>
+								<td>{$list.us_tel}</td>
+								<td>{$list.us_cash}</td>
+								<td>{$list.us_reg}</td>
+							</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+{include file="public/_footer"/}
+</body>
+</html>

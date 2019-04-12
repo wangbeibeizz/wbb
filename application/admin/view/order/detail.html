@@ -1,0 +1,43 @@
+{include file="public/_meta" /}
+<title>订单详情</title>
+</head>
+<body class="pos-r">
+	<div class="page-container">
+		<div class="row cl">
+			<div class="cl pd-5 bg-1 bk-gray mt-20"> <a href="javascript:;" class="btn btn-default radius"><span class="l">收货人：{$dizhi['us_name']} &nbsp;&nbsp;&nbsp;&nbsp;</span><span class="l">电话：{$dizhi['us_tel']} &nbsp;&nbsp;&nbsp;&nbsp;</span><span class="addr">收货地址：{$dizhi['province']} /{$dizhi['city']}/{$dizhi['area']}/{$dizhi['us_detailed']}</span> </a></div>
+			<div class="col-xs-11 col-sm-12 ">
+				<table id="tball" class="table table-border radius">
+					<thead id="" class="text-c">
+						<tr>
+							<th width="25">
+							<th>ID</th>
+							<!-- <th>商品店铺</th> -->
+							<th>商品图片</th>
+							<th>商品名称</th>
+							<th>商品类型</th>
+							<th>商品单价</th>
+							<th>商品数量</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody id="tbMain">
+						{volist name="product" id="vo"}
+							<tr class="text-c">
+								<th width="25">
+								<td>{$vo.pd_id}</td>
+								<td><img  style="width: 40px;height: 40px" class="product-thumb image" src="{$vo.pd_image}" alt=""></td>
+								<td>{$vo.pd_name}</td>
+								<td>{$vo.pd_type}</td>
+								<td>{$vo.pd_price}￥</td>
+								<td>{$vo.gw_number}</td>
+								<td></td>
+							</tr>
+						{/volist}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+{include file="public/_footer"/}
+</body>
+</html>
